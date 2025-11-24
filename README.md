@@ -11,6 +11,7 @@
         background: #ffe6f2;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
     }
 
     #propuesta, #pregunta{
@@ -132,14 +133,19 @@
     function aceptar(){
         document.body.innerHTML = `
             <div style="
-                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
                 width: 100vw;
+                height: 100vh;
+                background: #ffe6f2;
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 20px;
+                flex-direction: column;
                 text-align: center;
+                padding: 0;
+                margin: 0;
             ">
                 <h1 style="
                     font-size: 40px;
@@ -149,9 +155,8 @@
                     Sabía que ibas a decir que sí 💘✨
                 </h1>
 
-                <img class="sticker" 
-                     style="width: 200px;"
-                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrb89SF64azOT04C18HsIMcCRVyE5yiQB0Xplg_9RhRlb6PK6_nyyEAHqVIYLOvD-xU2Y&usqp=CAU">
+                <img style="width: 200px;" 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrb89SF64azOT04C18HsIMcCRVyE5yiQB0Xplg_9RhRlb6PK6_nyyEAHqVIYLOvD-xU2Y&usqp=CAU">
             </div>
         `;
     }
