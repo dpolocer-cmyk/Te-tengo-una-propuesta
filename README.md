@@ -61,6 +61,21 @@
         border-radius: 20px;
         box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
+
+    /* corazones */
+    .corazon, .estrella {
+        position: fixed;
+        top: -10px;
+        font-size: 25px;
+        animation: caer 4s linear infinite;
+        opacity: 0.8;
+        z-index: 999;
+    }
+
+    @keyframes caer{
+        0% { transform: translateY(-10px); opacity: 1; }
+        100% { transform: translateY(120vh); opacity: 0; }
+    }
 </style>
 
 </head>
@@ -130,6 +145,7 @@
         no.style.transform = `translate(${x}px, ${y}px)`;
     }
 
+    /* FUNCIÓN FINAL BONITA */
     function aceptar(){
         document.body.innerHTML = `
             <div style="
@@ -138,27 +154,45 @@
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background: #ffe6f2;
+
+                background: linear-gradient(135deg, #ff8dbb, #ff69a3, #ffb3d9);
+
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
                 text-align: center;
-                padding: 0;
-                margin: 0;
             ">
                 <h1 style="
-                    font-size: 40px;
-                    color: #ff4d94;
+                    font-size: 45px;
+                    color: white;
                     margin-bottom: 20px;
+                    font-weight: bold;
+                    text-shadow: 2px 2px 10px rgba(255,0,120,0.7);
                 ">
-                    Sabía que ibas a decir que sí 💘✨
+                    Sabía que dirías que sí 💘✨
                 </h1>
 
-                <img style="width: 200px;" 
+                <img style="width: 220px;" 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrb89SF64azOT04C18HsIMcCRVyE5yiQB0Xplg_9RhRlb6PK6_nyyEAHqVIYLOvD-xU2Y&usqp=CAU">
             </div>
         `;
+
+        iniciarCorazones();
+    }
+
+    /* CORAZONES + ESTRELLITAS */
+    function iniciarCorazones(){
+        setInterval(() => {
+            let elemento = document.createElement("div");
+            elemento.classList.add(Math.random() > 0.5 ? "corazon" : "estrella");
+            elemento.innerHTML = Math.random() > 0.5 ? "💖" : "✨";
+            elemento.style.left = Math.random() * 100 + "vw";
+            elemento.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            document.body.appendChild(elemento);
+
+            setTimeout(() => elemento.remove(), 5000);
+        }, 300);
     }
 </script>
 
