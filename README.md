@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Propuesta</title>
+
 <style>
     body{
         font-family: Arial, sans-serif;
         text-align: center;
         background: #ffe6f2;
+        margin: 0;
+        padding: 0;
     }
 
     #propuesta, #pregunta{
@@ -58,13 +61,17 @@
         box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
 </style>
+
 </head>
 <body>
 
 <!-- PRIMERA PANTALLA -->
 <div id="propuesta">
-    <img class="imagen-creativa" src="https://i.pinimg.com/474x/41/fa/6a/41fa6a760822ff93bfe43fa2b1d3cf07.jpg">
+    <img class="imagen-creativa" 
+         src="https://i.pinimg.com/474x/41/fa/6a/41fa6a760822ff93bfe43fa2b1d3cf07.jpg">
+    
     <h1>Tengo una propuesta 😳💗</h1>
+    
     <button class="btn" onclick="mostrarPregunta()">Ver propuesta 💌</button>
 </div>
 
@@ -72,9 +79,10 @@
 <div id="pregunta" style="display:none;">
     <h1>¿Quieres regresar conmigo? 🥺💗</h1>
 
-    <img class="sticker" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSlkgrnvrWRCNvkajsY58XJLd08EkrpaM_M0joRoaehiPvTYRBP2S4dwLHbw_g5FALyq8&usqp=CAU">
+    <img class="sticker" 
+         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSlkgrnvrWRCNvkajsY58XJLd08EkrpaM_M0joRoaehiPvTYRBP2S4dwLHbw_g5FALyq8&usqp=CAU">
 
-    <div style="margin-top:40px;">
+    <div style="margin-top:40px; position:relative; height:200px;">
         <button class="btn" id="si" onclick="aceptar()">Sí 💞</button>
         <button class="btn" id="no" onclick="rechazar()">No 💔</button>
     </div>
@@ -105,29 +113,46 @@
     }
 
     function rechazar(){
-        // Cambiar mensaje
         document.getElementById("msg").innerText = mensajes[index];
         index = (index + 1) % mensajes.length;
 
-        // Crecer el botón "Sí"
         sizeSi += 8;
         const si = document.getElementById("si");
         si.style.fontSize = sizeSi + "px";
         si.style.padding = (sizeSi/2) + "px " + (sizeSi) + "px";
 
-        // Mover NO lejos del SÍ sin chocar
         const no = document.getElementById("no");
 
-        const x = (Math.random() * 400) - 200;
-        const y = (Math.random() * 400) - 200;
+        const x = (Math.random() * 300) - 150;
+        const y = (Math.random() * 120) - 60;
 
         no.style.transform = `translate(${x}px, ${y}px)`;
     }
 
     function aceptar(){
         document.body.innerHTML = `
-            <h1 style="margin-top:120px;">Sabía que ibas a decir que sí 💘✨</h1>
-            <img class="sticker" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrb89SF64azOT04C18HsIMcCRVyE5yiQB0Xplg_9RhRlb6PK6_nyyEAHqVIYLOvD-xU2Y&usqp=CAU">
+            <div style="
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                text-align: center;
+            ">
+                <h1 style="
+                    font-size: 40px;
+                    color: #ff4d94;
+                    margin-bottom: 20px;
+                ">
+                    Sabía que ibas a decir que sí 💘✨
+                </h1>
+
+                <img class="sticker" 
+                     style="width: 200px;"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrb89SF64azOT04C18HsIMcCRVyE5yiQB0Xplg_9RhRlb6PK6_nyyEAHqVIYLOvD-xU2Y&usqp=CAU">
+            </div>
         `;
     }
 </script>
