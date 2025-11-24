@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Propuesta</title>
-
 <style>
     body{
         font-family: Arial, sans-serif;
@@ -111,11 +110,9 @@
         "¿Seguro? 😣",
         "No seas malo conmigo 🥺",
         "Dame una oportunidad pues 😞",
-        "Piénsalo bien, corazón ❤️",
         "No me digas que no 😭",
         "Oye, no seas así conmigo 😫",
         "Sabes que te quiero mucho 💗",
-        "No me rompas otra vez 😢",
         "Solo dame una chance más 😖",
         "Te juro que puedo mejorar ✨"
     ];
@@ -144,8 +141,6 @@
 
         no.style.transform = `translate(${x}px, ${y}px)`;
     }
-
-    /* FUNCIÓN FINAL BONITA */
     function aceptar(){
         document.body.innerHTML = `
             <div style="
@@ -180,8 +175,6 @@
 
         iniciarCorazones();
     }
-
-    /* CORAZONES + ESTRELLITAS */
     function iniciarCorazones(){
         setInterval(() => {
             let elemento = document.createElement("div");
@@ -195,6 +188,5 @@
         }, 300);
     }
 </script>
-
 </body>
 </html>
